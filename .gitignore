@@ -1,0 +1,65 @@
+# =========================
+# Python Bytecode & Cache
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Virtual / Conda Environments
+# =========================
+# Virtualenv
+venv/
+env/
+ENV/
+.venv/
+
+# Conda
+*.conda
+*.env
+.env/
+
+# =========================
+# Distribution / Build Artifacts
+# =========================
+build/
+dist/
+*.egg-info/
+.eggs/
+*.whl
+
+# =========================
+# IDEs / Editors
+# =========================
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# =========================
+# OS-specific files
+# =========================
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+
+# =========================
+# Logs / Temporary / Test Artifacts
+# =========================
+*.log
+*.tmp
+.coverage
+htmlcov/
+pytest_cache/
+.pytest_cache/
+nosetests.xml
+
