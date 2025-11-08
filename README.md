@@ -29,13 +29,20 @@ This package provides:
 ## Theoretical Background
 
 ### 1. Trajectory Matrix (Embedding)
-Given a time series <img src="https://latex.codecogs.com/svg.latex?x_t" /> of length <img src="https://latex.codecogs.com/svg.latex?n" /> and embedding dimension <img src="https://latex.codecogs.com/svg.latex?m" />:
+Given a time series $x_t$ of length $n$ and embedding dimension $m$:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mathbf{X}=\begin{bmatrix}x_1&x_2&\cdots&x_m\\x_2&x_3&\cdots&x_{m+1}\\\vdots&\vdots&\ddots&\vdots\\x_{n-m+1}&x_{n-m+2}&\cdots&x_n\end{bmatrix}" />
-</p>
+$$
+\mathbf{X} =
+\begin{bmatrix}
+x_1 & x_2 & \cdots & x_m \\
+x_2 & x_3 & \cdots & x_{m+1} \\
+\vdots & \vdots & \ddots & \vdots \\
+x_{n-m+1} & x_{n-m+2} & \cdots & x_n
+\end{bmatrix}
+$$
 
-This <img src="https://latex.codecogs.com/svg.latex?(n-m+1)\times{m}" /> matrix represents overlapping windows of the time series.
+
+This $(n-m+1)\times{m}$ matrix represents overlapping windows of the time series.
 
 ---
 
@@ -43,12 +50,12 @@ This <img src="https://latex.codecogs.com/svg.latex?(n-m+1)\times{m}" /> matrix 
 
 The covariance matrix summarizes how lagged versions of the time series co-vary:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mathbf{C}=\frac{1}{n-m+1}\mathbf{X}^T\mathbf{X}" />
-</p>
+$$
+\mathbf{C} = \frac{1}{n-m+1} \mathbf{X}^T \mathbf{X}
+$$
 
-Each element <img src="https://latex.codecogs.com/svg.latex?\Large&space;C_{ij}" />
- measures the covariance between time-lagged copies of the signal, separated by \( |i-j| \) timesteps.
+
+Each element $C_{ij}$ measures the covariance between time-lagged copies of the signal, separated by $( |i-j| )$ timesteps.
 
 
 
@@ -56,13 +63,14 @@ Each element <img src="https://latex.codecogs.com/svg.latex?\Large&space;C_{ij}"
 
 To extract dominant and independent patterns of variability, we solve the eigenvalue problem:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?\Large&space;\mathbf{C}\mathbf{e}_k=\lambda_k\mathbf{e}_k" />
-</p>
+$$
+\mathbf{C} \mathbf{e}_k = \lambda_k \mathbf{e}_k
+$$
+
 
 This operation identifies orthogonal directions — called **Empirical Orthogonal Functions (EOFs)** — that **maximize variance** of the lagged trajectories while maintaining mutual orthogonality.
 
-Formally, each EOF <img src="https://latex.codecogs.com/svg.latex?\mathbf{e}_k"/> is obtained by solving:
+Formally, each EOF $\mathbf{e}_k$ is obtained by solving:
 
 $$
 \max_{\mathbf{e}_k} \, \mathbf{e}_k^T \mathbf{C} \mathbf{e}_k 
@@ -71,8 +79,8 @@ $$
 $$
 
 The solution yields:
-- <img src="https://latex.codecogs.com/svg.latex?\lambda_k"/>: the **variance explained** by mode \( k \)  
-- \( \mathbf{e}_k \): the **orthogonal spatial (temporal-lag) pattern** of that mode  
+- $\lambda_k$: the **variance explained** by mode \( k \)  
+- $\mathbf{e}_k$: the **orthogonal spatial (temporal-lag) pattern** of that mode  
 
 
 
@@ -89,24 +97,26 @@ This allows one to separate:
 
 Under the red-noise null hypothesis, the process is modeled as:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?\Large&space;x_t=\gamma\,x_{t-1}+\alpha\,w_t,\quad w_t\sim\mathcal{N}(0,1)" />
-</p>
+$$
+x_t = \gamma \, x_{t-1} + \alpha \, w_t, \quad w_t \sim \mathcal{N}(0,1)
+$$
+
 
 where:  
-- <img src="https://latex.codecogs.com/svg.latex?\gamma" /> = lag-1 autocorrelation coefficient  
-- <img src="https://latex.codecogs.com/svg.latex?\alpha" /> = noise scaling parameter
+- $\gamma$ = lag-1 autocorrelation coefficient  
+- $\alpha$= noise scaling parameter
 
 ---
 
 ### 4. Monte Carlo Testing
 
-Generate <img src="https://latex.codecogs.com/svg.latex?N_s" /> surrogate realizations, apply SSA to each, and collect their eigenvalues <img src="https://latex.codecogs.com/svg.latex?\lambda_k^{(i)}" />.  
-For each SSA mode <img src="https://latex.codecogs.com/svg.latex?k" />, estimate confidence bounds:
+Generate $N_s$ surrogate realizations, apply SSA to each, and collect their eigenvalues $\lambda_k^{(i)}$. For each SSA mode $k$, estimate confidence bounds:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?\Large&space;\text{Upper}(k)=\text{Percentile}_{97.5}\{\lambda_k^{(i)}\},\quad\text{Lower}(k)=\text{Percentile}_{2.5}\{\lambda_k^{(i)}\}" />
-</p>
+$$
+\text{Upper}(k) = \text{Percentile}_{97.5}\{\lambda_k^{(i)}\}, \quad 
+\text{Lower}(k) = \text{Percentile}_{2.5}\{\lambda_k^{(i)}\}
+$$
+
 
 Modes of the real data whose eigenvalues exceed these bounds are considered significant.
 
