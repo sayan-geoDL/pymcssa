@@ -64,9 +64,11 @@ This operation identifies orthogonal directions — called **Empirical Orthogona
 
 Formally, each EOF <img src="https://latex.codecogs.com/svg.latex?\mathbf{e}_k"/> is obtained by solving:
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?\Large&space;\max_{\mathbf{e}_k}\,\mathbf{e}_k^T\mathbf{C}\mathbf{e}_k\quad\text{subject to}\quad\mathbf{e}_k^T\mathbf{e}_k=1" />
-</p>
+$$
+\max_{\mathbf{e}_k} \, \mathbf{e}_k^T \mathbf{C} \mathbf{e}_k 
+\quad \text{subject to} \quad 
+\mathbf{e}_k^T \mathbf{e}_k = 1
+$$
 
 The solution yields:
 - <img src="https://latex.codecogs.com/svg.latex?\lambda_k"/>: the **variance explained** by mode \( k \)  
