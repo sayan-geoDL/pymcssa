@@ -289,6 +289,11 @@ tests/test_ssa.py::test_ssa_invalid_window_too_large PASSED                     
 - **Allen, M. R., & Smith, L. A. (1996). *Monte Carlo SSA: Detecting irregular oscillations in the presence of coloured noise.* Journal of Climate, 9(12), 3373‑3404. doi:[10.1175/1520‑0442(1996)009<3373:MCSDIO>2.0.CO;2](https://doi.org/10.1175/1520-0442(1996)009<3373:MCSDIO>2.0.CO;2)**
 [Publisher Link](https://journals.ametsoc.org/view/journals/clim/9/12/1520-0442_1996_009_3373_mcsdio_2_0_co_2.xml)  
 ---
+## 📖 Documentation
+
+Full documentation for `pymcssa` is available online at:  
+[![Documentation](https://img.shields.io/badge/docs-online-brightgreen)](https://sayan-geoDL.github.io/pymcssa/)
+---
 ## 📄 License
 
 Released under the **MIT License**.  
