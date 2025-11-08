@@ -98,7 +98,7 @@ This allows one to separate:
 Under the red-noise null hypothesis, the process is modeled as:
 
 $$
-x_t = \gamma \, x_{t-1} + \alpha \, w_t, \quad w_t \sim \mathcal{N}(0,1)
+x_t = \gamma x_{t-1} + \alpha w_t, \quad w_t \sim \mathcal{N}(0,1)
 $$
 
 
