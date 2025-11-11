@@ -58,7 +58,7 @@ class SSA:
             
             - **eofs** : ndarray, shape (m, m)
                 EOFs (Empirical Orthogonal Functions) or spatial patterns.
-            - **eign_values** : ndarray, shape (m,)
+            - **eigen_values** : ndarray, shape (m,)
                 Eigenvalues (squared singular values) representing variance.
             - **percent_explained** : ndarray, shape (m,)
                 Percentage of variance explained by each component.
@@ -108,7 +108,7 @@ class SSA:
                     for j in range(params[1],params[2]):
                         rcs[t,k]=rcs[t,k]+((1/params[0])*(pcs[t-j,k]*eofs[j,k]))
             results={'eofs':eofs,
-                     'eign_values':p_vars,
+                     'eigen_values':p_vars,
                      'percent_explained':exps,
                      'pcs':pcs,
                      'rcs':rcs}

@@ -4,21 +4,39 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pymcssa"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Monte Carlo Singular Spectrum Analysis (MCSSA) package for time series analysis."
-authors = [
-    { name = "Sayan Jana" }
-]
 readme = "README.md"
-license = { text = "MIT" }
+license = { file = "LICENSE" }
+authors = [
+    { name = "Sayan Jana", email = "janasayan143@gmail.com" }
+]
 requires-python = ">=3.8"
+
 dependencies = [
     "numpy>=1.26,<2.0",
-    "pytest>=7.4,<8.0"
+]
+
+keywords = ["time-series", "signal-processing", "mcssa", "ssa", "statistics", "spectral-analysis"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Intended Audience :: Science/Research"
 ]
 
 [project.urls]
 Homepage = "https://github.com/sayan-geoDL/pymcssa"
+Repository = "https://github.com/sayan-geoDL/pymcssa"
+Documentation = "https://sayan-geoDL.github.io/pymcssa/"
+Issues = "https://github.com/sayan-geoDL/pymcssa/issues"
 
 [tool.setuptools.packages.find]
-where = ["pymcssa"]
+where = ["."]
+include = ["pymcssa*"]
+
+[tool.setuptools]
+include-package-data = true
+
